@@ -1,7 +1,7 @@
 # imagemoptimize
 图片压缩工具，支持CLI调用
 
-## 说明
+## 简介
 - 支持传入文件夹整体压缩
 - 支持压缩单独文件
 - 支持png|jpg|jpeg|gif
@@ -16,7 +16,7 @@ npm link
 imageoptimize -i ./abc/def -o ../xyz
 ```
 
-## 参数说明
+## 参数说明 
 ```
 选项：
   --version      显示版本号                                               	[布尔]

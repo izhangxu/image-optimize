@@ -1,7 +1,5 @@
-const imagemin = require('./bin/imagemin.js');
+const imageoptimize = require('./bin/imageoptimize.js');
 
-module.exports = {
-	init: (argv) => {
-		imagemin.init(argv);
-	}
+module.exports = (argv) => {
+	imageoptimize(argv);
 };

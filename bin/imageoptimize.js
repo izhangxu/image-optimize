@@ -9,7 +9,7 @@ const handleArgv = (yargs) => {
 		.usage('Usage: $0 [options]')
 		.options(commandOptions.imagemin)
 		.demandOption('i')
-		.example('Usage: $0 -i 123.png -o 123_1.png')
+		.example('Usage: $0 -i /abc/edf -o ../xyz')
 		.help()
 		.argv;
 
@@ -20,6 +20,7 @@ const handleArgv = (yargs) => {
 		flags: out
 	});
 };
+
 
 if (!module.parent) {
 	let yargs = require('yargs')
@@ -44,4 +45,6 @@ if (!module.parent) {
 	} else {
 		yargs.showHelp();
 	}
+} else {
+	// module.exports = handleArgv;
 }
