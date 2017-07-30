@@ -1,0 +1,29 @@
+{
+	"imagemin": {
+		"i": {
+			"alias": "input",
+			"describe": "输入文件或文件夹路径",
+			"type": "string"
+		},
+		"o": {
+			"alias": "output",
+			"describe": "输出文件夹路径（不传则命名上加'_out' e.g. index_out.js /public_out），输入相对路径",
+			"type": "string"
+		},
+		"j": {
+			"alias": "quality",
+			"describe": "jpg,jpeg压缩质量（1-100，默认70）",
+			"type": "number"
+		},
+		"p": {
+			"alias": "level",
+			"describe": "png压缩质量（1-100，默认70）",
+			"type": "number"
+		},
+		"g": {
+			"alias": "colors",
+			"describe": "gif压缩质量（2-256，默认70）",
+			"type": "number"
+		}
+	}
+}
