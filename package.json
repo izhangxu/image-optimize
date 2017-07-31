@@ -4,7 +4,7 @@
   "description": "图片压缩、移动",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava"
   },
   "bin": {
     "imageoptimize": "bin/imageoptimize.js"
@@ -12,7 +12,8 @@
   "author": "zhangxu",
   "license": "ISC",
   "devDependencies": {
-    "chalk": "^1.1.3",
+    "ava": "^0.21.0",
+    "chalk": "^2.0.1",
     "iconv-lite": "^0.4.18",
     "imagemin": "^5.2.2",
     "imagemin-gifsicle": "^5.1.0",
@@ -20,6 +21,7 @@
     "imagemin-pngquant": "^5.0.0",
     "mime-types": "^2.1.14",
     "opener": "^1.4.3",
+    "pify": "^3.0.0",
     "yargs": "^6.6.0"
   }
 }

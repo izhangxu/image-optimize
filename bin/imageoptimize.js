@@ -45,6 +45,4 @@ if (!module.parent) {
 	} else {
 		yargs.showHelp();
 	}
-} else {
-	// module.exports = handleArgv;
-}
+} 

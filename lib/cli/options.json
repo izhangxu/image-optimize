@@ -11,17 +11,17 @@
 			"type": "string"
 		},
 		"j": {
-			"alias": "quality",
+			"alias": "jpgquality",
 			"describe": "jpg,jpeg压缩质量（1-100，默认70）",
 			"type": "number"
 		},
 		"p": {
-			"alias": "level",
+			"alias": "pnglevel",
 			"describe": "png压缩质量（1-100，默认70）",
 			"type": "number"
 		},
 		"g": {
-			"alias": "colors",
+			"alias": "gifcolors",
 			"describe": "gif压缩质量（2-256，默认70）",
 			"type": "number"
 		}
