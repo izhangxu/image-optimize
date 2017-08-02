@@ -3,8 +3,7 @@ const colors = require('./lib/colors.js');
 
 module.exports = (input, output, opts) => {
 	if (!Array.isArray(input)) {
-		colors.error('input 参数不正确(应该传入一个路径)');
-		return false;
+		return colors.error('-i 参数不正确(应该传入一个路径)');
 	}
 	if (typeof output === 'object') {
 		opts = output;

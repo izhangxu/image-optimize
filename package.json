@@ -19,9 +19,11 @@
     "imagemin-gifsicle": "^5.1.0",
     "imagemin-mozjpeg": "^6.0.0",
     "imagemin-pngquant": "^5.0.0",
+    "meow": "^3.7.0",
     "mime-types": "^2.1.14",
     "opener": "^1.4.3",
     "pify": "^3.0.0",
-    "yargs": "^6.6.0"
+    "yargs": "^6.6.0",
+    "yargs-parser": "^7.0.0"
   }
 }
