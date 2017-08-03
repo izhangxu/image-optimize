@@ -13,7 +13,7 @@ if (!module.parent) {
 		.version(() => pkg.version)
 		.epilogue("查看使用文档，输入 imagemin --help")
 		.argv;
-
+	
 	require('../lib/cli')({
 		flags: argv
 	});

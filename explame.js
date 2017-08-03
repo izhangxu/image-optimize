@@ -1,3 +1,3 @@
 const imageoptimize = require('./index.js');
 
-imageoptimize();
+imageoptimize('../123', '../234');
