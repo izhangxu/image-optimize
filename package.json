@@ -4,7 +4,7 @@
   "description": "图片压缩、移动",
   "main": "index.js",
   "scripts": {
-    "test": "ava"
+    "test": "ava test/test.js"
   },
   "bin": {
     "imageoptimize": "bin/imageoptimize.js"
