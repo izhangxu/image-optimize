@@ -8,8 +8,6 @@ node_modules
 
 asset
 
-test.js
-
 example.js
 
 *.txt
