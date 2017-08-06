@@ -20,5 +20,5 @@ test('optimize an image', async t => {
 });
 
 test('output error on corrupt images', async t => {
-	await t.throws(execa(cli, ['-i', 'image.png']), /参数不正确/);
+	t.regex(await execa.stdout(cli, ['-i', 'image.png']), /参数不正确/);
 });
