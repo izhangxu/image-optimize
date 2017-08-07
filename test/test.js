@@ -1,3 +1,5 @@
+'use strict';
+
 const fs = require('fs');
 const test = require('ava');
 const exec = require('child_process').exec;
@@ -18,22 +20,22 @@ test('测试版本号，cli调用', async t => {
 });
 
 test('压缩一张图片，cli调用', async t => {
+	await execa(cli, ['-i', './input_dir/file1.jpg', '-o', './output_dir']);
+	t.true(fs.statSync('./input_dir/file1.jpg').size >= fs.statSync('./output_dir/file1.jpg').size);
 	await del(['./output_dir'], {
 		force: true
 	});
-	await execa(cli, ['-i', './input_dir/file1.jpg', '-o', './output_dir']);
-	t.true(fs.statSync('./input_dir/file1.jpg').size >= fs.statSync('./output_dir/file1.jpg').size);
 });
 
 test('压缩一组图片，cli调用', async t => {
-	await del(['./output_dir'], {
-		force: true
-	});
 	await execa(cli, ['-i', './input_dir/dir1', '-o', './output_dir/dir1']);
 	const entry = await readdir('./input_dir/dir1', ['.DS_Store']);
 	const dest = await readdir('./output_dir/dir1', ['.DS_Store']);
 	t.true(entry.length == entry.length);
-	t.true(fs.statSync('./input_dir/file1.jpg').size >= fs.statSync('./output_dir/file1.jpg').size);
+	t.true(fs.statSync('./input_dir/dir1').size >= fs.statSync('./output_dir/dir1').size);
+	await del(['./output_dir'], {
+		force: true
+	});
 });
 
 test('压缩一张不存在图片会提示错误，cli调用', async t => {
@@ -41,9 +43,6 @@ test('压缩一张不存在图片会提示错误，cli调用', async t => {
 });
 
 test('压缩一张图片，函数调用', async t => {
-	await del(['./output_dir/file1.jpg'], {
-		force: true
-	});
 	const execute = await new Promise((resolve, reject) => {
 		i('./input_dir/file1.jpg', './output_dir', (err, files) => {
 			if (err) {
@@ -55,6 +54,9 @@ test('压缩一张图片，函数调用', async t => {
 	});
 	await t.is(execute.length, 1);
 	t.true(fs.statSync('./input_dir/file1.jpg').size >= fs.statSync('./output_dir/file1.jpg').size);
+	await del(['./output_dir'], {
+		force: true
+	});
 });
 
 test('压缩一张不存在图片会提示错误，函数调用', async t => {
@@ -71,9 +73,6 @@ test('压缩一张不存在图片会提示错误，函数调用', async t => {
 });
 
 test('压缩一组图片，函数调用', async t => {
-	await del(['./output_dir'], {
-		force: true
-	});
 	const execute = await new Promise((resolve, reject) => {
 		i('./input_dir/dir1', './output_dir/dir1', (err, files) => {
 			if (err) {
@@ -85,5 +84,8 @@ test('压缩一组图片，函数调用', async t => {
 	});
 	const dest = await readdir('./input_dir/dir1', ['.DS_Store']);
 	t.true(execute.length == dest.length);
-	t.true(fs.statSync('./input_dir/file1.jpg').size >= fs.statSync('./output_dir/file1.jpg').size);
+	t.true(fs.statSync('./input_dir/dir1').size >= fs.statSync('./output_dir/dir1').size);
+	await del(['./output_dir'], {
+		force: true
+	});
 });
