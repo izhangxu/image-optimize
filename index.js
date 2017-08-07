@@ -1,12 +1,23 @@
 const imageoptimize = require('./lib/cli');
 
-module.exports = (input, output, opts) => {
+module.exports = (input, output, opts, callback = () => {}) => {
 	if (!input || typeof input !== 'string') {
-		return colors.error('-i 参数不正确(应该传入一个路径)');
+		callback('-i 参数不正确或未输入');
+		return colors.error('-i 参数不正确未输入');
 	}
+
 	if (typeof output === 'object') {
 		opts = output;
 		output = null;
+	}
+	if (typeof output === 'function') {
+		callback = output;
+		output = null;
+		opts = {};
+	}
+	if (typeof opts === 'function') {
+		callback = opts;
+		opts = {};
 	}
 	opts = Object.assign({
 		p: 70,
@@ -14,10 +25,8 @@ module.exports = (input, output, opts) => {
 		j: 70
 	}, opts);
 
-	return imageoptimize({
-		flags: Object.assign({
-			i: input,
-			o: output
-		}, opts)
-	});
+	return imageoptimize(Object.assign({
+		i: input,
+		o: output
+	}, opts), callback);
 };
