@@ -1,5 +1,5 @@
 {
-	"imagemin": {
+	"imageoptimize": {
 		"i": {
 			"alias": "input",
 			"describe": "输入文件或文件夹路径",
