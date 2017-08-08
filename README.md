@@ -1,5 +1,5 @@
 # imagemoptimize
-图片压缩工具，支持CLI调用
+图片压缩工具，支持CLI调用，支持require引入调用
 
 ## 简介
 - 支持传入文件夹整体压缩
@@ -9,23 +9,66 @@
 
 ## 安装
 ``` bash
-$ npm clone git@github.com:izhangxu/image-optimize.git
-$ npm link
+$ npm install imageoptimize
 ```
 
 ## 版本
 node >= 5.2.0
 
-## 使用
+## require引入
 
-### CLI使用
+### 调用
+```
+const imageoptimize = require('imageoptimize');
 
-#### bash
+imageoptimize('./test/input_dir/dir1', './test/output_dir/dir1', {p: 70, g: 80, j: 90}, (err, array) => {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log(array); 
+        // 压缩输出的图片buffer及路径
+        // [{data: <Buffer 89 50 4e …>, path: 'build/images/foo.jpg'}, …]
+    }
+});
+```
+
+### 参数说明
+
+#### imageoptimize(input, output, [options])
+
+#### input
+
+类型: `String`
+
+文件或者目录的路径
+
+#### output
+
+类型: `String`
+
+压缩输出路径，如果此处传入一个文件路径，则图片会输出到该文件路径的所在的目录下；**如果此处不传任何参数，则输出文件会覆盖源文件**
+
+#### options
+
+类型: `Object`
+
+`p` png图片压缩的质量（1-100），`j` jpg图片压缩的质量（1-100），`g` gif图片压缩的质量（1-100），数字越大图片质量越高。默认均为70，建议使用默认
+
+#### callback
+
+类型： `Function`
+
+压缩成功的回调函数，总共有两个参数。第一个参数为错误信息，第二个参数为返回的所有图片buffer及路径的一个数组
+
+## CLI使用
+需要全局`npm install imageoptimize -g`安装
+
+### bash
 ``` bash
 $ imageoptimize -i ./abc/def -o ../xyz
 ```
 
-#### 参数说明
+### 参数说明
 ```
 选项：
   -i, --input        输入文件或文件夹路径                         [字符串] [必需]

@@ -1,6 +1,6 @@
 {
-  "name": "image-optimize",
-  "version": "1.0.0",
+  "name": "imageoptimize",
+  "version": "0.1.0",
   "description": "图片压缩、移动",
   "main": "index.js",
   "scripts": {
