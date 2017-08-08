@@ -1,14 +1,15 @@
 module.exports = {
     "env": {
-        "browser": true,
-        "commonjs": true,
+        "node": true,
         "es6": true
     },
     "extends": "eslint:recommended",
     "parserOptions": {
+        "ecmaVersion": 6,
         "sourceType": "module"
     },
     "rules": {
+        "no-console": "off",
         "indent": [
             "error",
             "tab"
@@ -20,10 +21,6 @@ module.exports = {
         "quotes": [
             "error",
             "single"
-        ],
-        "semi": [
-            "error",
-            "never"
         ]
     }
 };
