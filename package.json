@@ -1,7 +1,8 @@
 {
   "name": "imageoptimize",
   "version": "0.1.1",
-  "description": "图片压缩、移动",
+  "description": "图片压缩，目录下图片压缩，图片压缩命令行工具",
+  "repository": "https://github.com/izhangxu/image-optimize",
   "main": "index.js",
   "scripts": {
     "test": "ava test/test.js",
