@@ -9,6 +9,7 @@ module.exports = {
         "sourceType": "module"
     },
     "rules": {
+        "generator-star-spacing": "off",
         "no-console": "off",
         "indent": [
             "error",

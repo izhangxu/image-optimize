@@ -2,8 +2,7 @@ const imageoptimize = require('./lib/cli');
 
 module.exports = (input, output, opts, callback = () => {}) => {
 	if (!input || typeof input !== 'string') {
-		callback('-i 参数不正确或未输入');
-		return colors.error('-i 参数不正确未输入');
+		return callback('-i 参数不正确或未输入');
 	}
 
 	if (typeof output === 'object') {

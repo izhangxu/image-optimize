@@ -4,7 +4,8 @@
   "description": "图片压缩、移动",
   "main": "index.js",
   "scripts": {
-    "test": "ava test/test.js"
+    "test": "ava test/test.js",
+    "lint": "eslint bin/ lib/ index.js --f codeframe"
   },
   "bin": {
     "imageoptimize": "bin/imageoptimize.js"
@@ -15,6 +16,7 @@
     "ava": "^0.21.0",
     "chalk": "^2.0.1",
     "del": "^3.0.0",
+    "eslint": "^4.4.1",
     "execa": "^0.7.0",
     "imagemin": "^5.2.2",
     "imagemin-gifsicle": "^5.1.0",
