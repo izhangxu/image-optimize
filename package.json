@@ -1,6 +1,6 @@
 {
   "name": "imageoptimize",
-  "version": "0.1.1",
+  "version": "0.1.4",
   "description": "图片压缩，目录下图片压缩，图片压缩命令行工具",
   "repository": "https://github.com/izhangxu/image-optimize",
   "main": "index.js",
@@ -13,7 +13,7 @@
   },
   "author": "zhangxu",
   "license": "ISC",
-  "dependencies":{
+  "dependencies": {
     "chalk": "^2.0.1",
     "imagemin": "^5.2.2",
     "imagemin-gifsicle": "^5.1.0",
