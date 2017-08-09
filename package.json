@@ -2,6 +2,7 @@
   "name": "imageoptimize",
   "version": "0.1.5",
   "description": "图片压缩，目录下图片压缩，图片压缩命令行工具",
+  "keywords":["image-optimize","imagemin"],
   "repository": "https://github.com/izhangxu/image-optimize",
   "main": "index.js",
   "scripts": {
