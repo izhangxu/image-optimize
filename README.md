@@ -1,4 +1,7 @@
 # imagemoptimize
+
+[![Build Status](https://www.travis-ci.org/izhangxu/image-optimize.svg?branch=master)](https://www.travis-ci.org/izhangxu/image-optimize)
+
 图片压缩工具，支持CLI调用，支持require引入调用
 
 ## 简介
