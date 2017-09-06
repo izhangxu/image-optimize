@@ -13,17 +13,20 @@
 		"j": {
 			"alias": "jpg-quality",
 			"describe": "jpg,jpeg压缩质量（1-100，默认70）",
-			"type": "number"
+			"type": "number",
+			"default": 70
 		},
 		"p": {
 			"alias": "png-level",
 			"describe": "png压缩质量（1-100，默认70）",
-			"type": "number"
+			"type": "number",
+			"default": 70
 		},
 		"g": {
 			"alias": "gif-colors",
-			"describe": "gif压缩质量（2-256，默认70）",
-			"type": "number"
+			"describe": "gif压缩质量（1-100，默认70）",
+			"type": "number",
+			"default": 70
 		}
 	}
 }
