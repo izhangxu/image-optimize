@@ -1,3 +1,5 @@
+'use strict';
+
 const imageoptimize = require('./lib/cli');
 
 /**
