@@ -8,11 +8,12 @@ const imageoptimize = require('./lib/cli');
  * @param  {Function} callback 成功回调
  * @return {Function}          
  */
-module.exports = (input, output, opts, callback = () => {}) => {
+module.exports = (input, output, opts, callback) => {
+	callback = callback || function() {}
+
 	if (!input || typeof input !== 'string') {
 		return callback('-i 参数不正确或未输入');
 	}
-
 	if (typeof output === 'object') {
 		opts = output;
 		output = null;
