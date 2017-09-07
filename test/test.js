@@ -10,8 +10,8 @@ const i = require('../');
 
 process.chdir(__dirname);
 
-test.afterEach('清除输出目录文件', t => {
-	del.sync(['./output_dir'], {
+test.after('清除输出目录文件', async t => {
+	await del(['./output_dir'], {
 		force: true
 	});
 });
@@ -25,16 +25,16 @@ test('测试版本号，cli调用', async t => {
 });
 
 test('压缩一张图片，cli调用', async t => {
-	await execa(cli, ['-i', './input_dir/file1.jpg', '-o', './output_dir']);
-	t.true(fs.statSync('./input_dir/file1.jpg').size > fs.statSync('./output_dir/file1.jpg').size);
+	await execa(cli, ['-i', './input_dir/titan.jpg', '-o', './output_dir/file1']);
+	t.true(fs.statSync('./input_dir/titan.jpg').size > fs.statSync('./output_dir/file1/titan.jpg').size);
 });
 
 test('压缩一组图片，cli调用', async t => {
-	await execa(cli, ['-i', './input_dir/dir1', '-o', './output_dir/dir1']);
-	const entry = await readdir('./input_dir/dir1', ['.DS_Store']);
+	await execa(cli, ['-i', './input_dir/dir', '-o', './output_dir/dir1']);
+	const entry = await readdir('./input_dir/dir', ['.DS_Store']);
 	const dest = await readdir('./output_dir/dir1', ['.DS_Store']);
 	t.true(entry.length == entry.length);
-	t.true(fs.statSync('./input_dir/dir1').size > fs.statSync('./output_dir/dir1').size);
+	t.true(fs.statSync('./input_dir/dir').size > fs.statSync('./output_dir/dir1').size);
 });
 
 test('压缩一张不存在图片会提示错误，cli调用', async t => {
@@ -43,9 +43,9 @@ test('压缩一张不存在图片会提示错误，cli调用', async t => {
 });
 
 test('压缩一张图片，函数调用', async t => {
-	const execute = await i('./input_dir/file1.jpg', './output_dir');
+	const execute = await i('./input_dir/titan.jpg', './output_dir/file');
 	t.is(execute.length, 1);
-	t.true(fs.statSync('./input_dir/file1.jpg').size > fs.statSync('./output_dir/file1.jpg').size);
+	t.true(fs.statSync('./input_dir/titan.jpg').size > fs.statSync('./output_dir/file/titan.jpg').size);
 });
 
 test('压缩一张不存在图片会提示错误，函数调用', async t => {
@@ -55,8 +55,8 @@ test('压缩一张不存在图片会提示错误，函数调用', async t => {
 });
 
 test('压缩一组图片，函数调用', async t => {
-	const execute = await i('./input_dir/dir1', './output_dir/dir1');
-	const dest = await readdir('./input_dir/dir1', ['.DS_Store']);
+	const execute = await i('./input_dir/dir', './output_dir/dir');
+	const dest = await readdir('./input_dir/dir', ['.DS_Store']);
 	t.true(execute.length == dest.length);
-	t.true(fs.statSync('./input_dir/dir1').size > fs.statSync('./output_dir/dir1').size);
+	t.true(fs.statSync('./input_dir/dir').size > fs.statSync('./output_dir/dir').size);
 });
