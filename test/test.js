@@ -38,7 +38,8 @@ test('压缩一组图片，cli调用', async t => {
 });
 
 test('压缩一张不存在图片会提示错误，cli调用', async t => {
-	t.regex(await execa.stderr(cli, ['-i', 'image.png']), /参数不正确/);
+	const execute = await execa.stderr(cli, ['-i', 'image.png']);
+	t.regex(execute, /参数不正确/);
 });
 
 test('压缩一张图片，函数调用', async t => {
