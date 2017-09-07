@@ -10,8 +10,8 @@ const i = require('../');
 
 process.chdir(__dirname);
 
-test.afterEach('清除输出目录文件', async t => {
-	await del(['./output_dir'], {
+test.afterEach('清除输出目录文件', t => {
+	del.sync(['./output_dir'], {
 		force: true
 	});
 });
