@@ -31,7 +31,6 @@
     "del": "^3.0.0",
     "eslint": "^4.4.1",
     "execa": "^0.7.0",
-    "readify": "^5.0.1",
     "recursive-readdir": "^2.2.1"
   }
 }
