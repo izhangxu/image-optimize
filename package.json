@@ -2,7 +2,10 @@
   "name": "imageoptimize",
   "version": "0.1.7",
   "description": "图片压缩，目录下图片压缩，图片压缩命令行工具，imagemin，image-optimize",
-  "keywords":["image-optimize","imagemin"],
+  "keywords": [
+    "image-optimize",
+    "imagemin"
+  ],
   "repository": "https://github.com/izhangxu/image-optimize",
   "main": "index.js",
   "scripts": {
@@ -28,6 +31,7 @@
     "del": "^3.0.0",
     "eslint": "^4.4.1",
     "execa": "^0.7.0",
+    "readify": "^5.0.1",
     "recursive-readdir": "^2.2.1"
   }
 }
