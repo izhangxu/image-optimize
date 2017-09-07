@@ -37,7 +37,7 @@ imageoptimize('./test/input_dir/dir1', './test/output_dir/dir1', {p: 70, g: 80, 
 
 ### 参数说明
 
-#### imageoptimize(input, output, [options])
+#### imageoptimize(input[, output][, options], callback)
 
 #### input
 

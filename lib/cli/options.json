@@ -27,6 +27,12 @@
 			"describe": "gif压缩质量（1-100，默认70）",
 			"type": "number",
 			"default": 70
+		},
+		"d": {
+			"alias": "detail",
+			"describe": "显示图片压缩过程详细",
+			"type": "boolean",
+			"default": false
 		}
 	}
 }
