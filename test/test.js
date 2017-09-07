@@ -11,11 +11,11 @@ const i = require('../');
 
 process.chdir(__dirname);
 
-// test.after('清除输出目录文件', async t => {
-// 	await del(['./output_dir'], {
-// 		force: true
-// 	});
-// });
+test.after('清除输出目录文件', async t => {
+	await del(['./output_dir'], {
+		force: true
+	});
+});
 
 test('测试--help，cli调用', async t => {
 	t.regex(await execa.stdout(cli, ['--help']), /Usage: imageoptimize/);
@@ -42,6 +42,9 @@ test('压缩一组图片，cli调用', async t => {
 
 test('压缩一张不存在图片会提示错误，cli调用', async t => {
 	const execute = await execa.stderr(cli, ['-i', 'image.png']);
+	console.log(execute);
+	console.log(await execa.stdout(cli, ['-i', 'image.png']));
+	console.log(await execa(cli, ['-i', 'image.png']));
 	t.regex(execute, /参数不正确/);
 });
 
