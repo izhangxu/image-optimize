@@ -16,12 +16,6 @@ test.afterEach('清除输出目录文件', async t => {
 	});
 });
 
-test.after('cleanup', async t => {
-	await del(['./output_dir'], {
-		force: true
-	});
-});
-
 test('测试--help，cli调用', async t => {
 	t.regex(await execa.stdout(cli, ['--help']), /Usage: imageoptimize/);
 });
