@@ -2,13 +2,14 @@
 
 [![Build Status](https://www.travis-ci.org/izhangxu/image-optimize.svg?branch=master)](https://www.travis-ci.org/izhangxu/image-optimize)
 
-图片压缩工具，支持CLI调用，支持require引入调用
+图片压缩工具，支持CLI及require引入调用
 
 ## 简介
 - 支持传入文件夹整体压缩
 - 支持压缩单独文件
 - 支持处理png、jpg、jpeg、gif
 - 支持命令行及引入模块调用
+- 模块引用返回promise接口
 
 ## 安装
 ``` bash
@@ -24,15 +25,12 @@ node >= 5.2.0
 ```
 const imageoptimize = require('imageoptimize');
 
-imageoptimize('./test/input_dir/dir1', './test/output_dir/dir1', {p: 70, g: 80, j: 90}, (err, array) => {
-    if (err) {
-        console.log(err);
-    } else {
-        console.log(array); 
+imageoptimize('./test/input_dir/dir1', './test/output_dir/dir1', {p: 70, g: 80, j: 90})
+    .then(files => {
+        console.log(files);
         // 压缩输出的图片buffer及路径
         // [{data: <Buffer 89 50 4e …>, path: 'build/images/foo.jpg'}, …]
-    }
-});
+    });
 ```
 
 ### 参数说明
@@ -86,6 +84,6 @@ $ imageoptimize -i ./abc/def -o ../xyz
   $ imageoptimize -i /abc/def -o ../xyz
   $ imageoptimize -i /abc/def -o /Users/myname/Documents/
   $ imageoptimize -i /abc/def
-  $ imageoptimize -i /abc/def/efg.png 
+  $ imageoptimize -i /abc/def/efg.png
   $ imageoptimize -i /abc/def/efg.png -o ./xyz
 ```
