@@ -2,7 +2,7 @@
 
 [![Build Status](https://www.travis-ci.org/izhangxu/image-optimize.svg?branch=master)](https://www.travis-ci.org/izhangxu/image-optimize)
 
-图片压缩工具，支持CL及require引入调用
+图片压缩工具，支持CLI及require引入调用
 
 ## 简介
 - 支持传入文件夹整体压缩
