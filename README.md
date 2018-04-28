@@ -1,4 +1,4 @@
-# imagemoptimize
+# image-optimize
 
 [![Build Status](https://www.travis-ci.org/izhangxu/image-optimize.svg?branch=master)](https://www.travis-ci.org/izhangxu/image-optimize)
 
